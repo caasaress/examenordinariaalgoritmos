@@ -173,6 +173,19 @@ La función `detectar_hub()` selecciona la estación con **mayor grado** (númer
 Se exporta automáticamente al **cargar** la red y al **guardar y salir**.
 
 ---
+## Bonus: estación hub e informe JSON
+
+La función `detectar_hub()` selecciona la estación con **mayor grado** (número de conexiones incidentes). `exportar_informe_json()` genera `informe_red.json` con:
+
+- `numero_total_estaciones`
+- `numero_total_conexiones`
+- `estacion_hub` (nombre, grado, listado de conexiones)
+- listado de todas las estaciones
+
+Se exporta automáticamente al **cargar** la red y al **guardar y salir**.
+
+**Justificación técnica de la mejora:**
+Se ha optado por implementar la detección del *hub* porque permite aplicar el concepto teórico de **centralidad de grado** en grafos. Desde el punto de vista algorítmico, esta operación es altamente eficiente, ya que se resuelve en tiempo lineal $O(V + E)$ iterando sobre las listas de adyacencia, sin penalizar el rendimiento global del sistema. Además, la exportación automática estructurada mediante la librería nativa `json` mejora la interoperabilidad y persistencia de los datos, demostrando un uso avanzado de archivos más allá del simple texto plano.
 
 ## Validaciones implementadas
 
